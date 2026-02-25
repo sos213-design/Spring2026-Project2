@@ -1,3 +1,50 @@
 body {
     background-image: url('https://images.unsplash.com/photo-1609793783813-baafd4ad9def?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
 }
+
+#Title{
+    position: absolute;
+    align-content: center;
+    border: 3px solid #73AD21;
+    background-color: gold;
+    left: 39%;
+    top: 40%;
+    anchor-name: --Title;
+}
+
+#Query{
+    position-anchor: --Title;
+    position: absolute;
+    align-self:anchor-center;
+    top: anchor(85%);
+    left: anchor(23%);
+    margin-top: 10px;
+    anchor-name: --Bar;
+    
+}
+
+#searchButt{
+    position-anchor: --Bar;
+    position: absolute;
+    anchor-name: --Bar;
+    align-self:anchor-center;
+    top: anchor(90%);
+    left: anchor(-5%);
+    margin-top: 5px;
+    
+}
+
+#timeButt {
+    position-anchor: --Bar;
+    position: absolute;
+    anchor-name: --Bar;
+    align-self: anchor-center;
+    top: anchor(0%);
+    left: anchor(120%);
+    margin-top: 0px;
+}
+
+#searchResults{
+    visibility: hidden;
+}
+#time {visibility: hidden;}
