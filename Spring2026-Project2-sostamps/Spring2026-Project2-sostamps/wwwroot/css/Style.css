@@ -26,7 +26,6 @@ body {
 #searchButt{
     position-anchor: --Bar;
     position: absolute;
-    anchor-name: --Bar;
     align-self:anchor-center;
     top: anchor(90%);
     left: anchor(-5%);
@@ -34,17 +33,29 @@ body {
     
 }
 
-#timeButt {
+#timeButt{
     position-anchor: --Bar;
     position: absolute;
-    anchor-name: --Bar;
     align-self: anchor-center;
-    top: anchor(0%);
-    left: anchor(120%);
-    margin-top: 0px;
+    top: anchor(90%);
+    left: anchor(50%);
+    margin-top: 5px;
 }
 
 #searchResults{
     visibility: hidden;
+    color: salmon;
+    position-anchor: --Bar;
+    position: absolute;
+    align-self: center;
+    top: anchor(210%);
+    left: anchor(-40%);
 }
-#time {visibility: hidden;}
+#time {
+    visibility: hidden;
+    position-anchor: --Bar;
+    position: absolute;
+    align-self: center;
+    top: anchor(210%);
+    left: anchor(50%);
+}
