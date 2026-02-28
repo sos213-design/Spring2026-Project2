@@ -1,10 +1,9 @@
-﻿//Switches Visibility
+﻿// Switches Visibility
 function toggleVisibility(id) {
     const element = document.getElementById(id);
     if (element.style.visibility === "hidden" || element.style.visibility === "") {
         element.style.visibility = "visible";
-    }
-        else {
+    } else {
         element.style.visibility = "hidden";
     }
 }
@@ -128,28 +127,29 @@ function renderResults(data, container) {
 }
 
 function showTime() {
-
-
     const now = new Date();
 
     let hours = now.getHours();
     let minutes = now.getMinutes();
 
-    // Format to HH:MM (24-hour format)
     hours = hours < 10 ? "0" + hours : hours;
     minutes = minutes < 10 ? "0" + minutes : minutes;
 
     const formattedTime = hours + ":" + minutes;
 
-    // Load time into div
-    $("#time").html("<h2>Current Time</h2><p>" + formattedTime + "</p>");
+    $("#time").html("<p>" + formattedTime + "</p>");
 
-    // Open jQueryUI dialog
-    $("#time").dialog({
-        modal: true,
-        title: "Current Time",
-        width: 300
-    });
+    if ($("#time").hasClass("ui-dialog-content")) {
+        $("#time")
+            .dialog("option", "title", "Current Time")
+            .dialog("open");
+    } else {
+        $("#time").dialog({
+            modal: true,
+            title: "Current Time",
+            width: 300
+        });
+    }
 }
 
 
