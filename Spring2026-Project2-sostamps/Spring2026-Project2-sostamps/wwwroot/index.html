@@ -3,18 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Lil Chrome</title>
-    <link rel="stylesheet" type="text/css" href="css/Style.css">
-    <script src = js/site.js></script>
+    <link rel="stylesheet" href="css/Style.css">
+    <!-- jQuery -->
+    <script
+            src="https://code.jquery.com/jquery-3.6.4.min.js"
+            integrity="sha256-o88Awf4L7U8Gk3g9FjC4Y9E+u6KDAdM8X1sC3yRlmEw="
+            crossorigin="anonymous"></script>
+
+    <!-- jQuery UI CSS -->
+    <link
+            rel="stylesheet"
+            href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+            integrity="sha256-lHWg1YpUuH0z7LxyzKDn5XxhxL7sRKqzZo4PM5XgS5E="
+            crossorigin="anonymous">
+
+    <!-- jQuery UI JS -->
+    <script
+            src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
+            integrity="sha256-lYX1JpN96CBvs1+qsSVqS+8CA0nVddOZXS6jttuPAHY="
+            crossorigin="anonymous"></script>
+
+    <!-- JS -->
+    <script src="js/site.js" defer></script>
 </head>
+
+
 <body>
-<h1 id="Title">Jermaine Chrome</h1>
+<h1 id="Title" onclick="toggleBackground()">Jermaine Chrome</h1>
 
 <input type="text" id="Query" placeholder="Ask me a question">
-<button onclick="toggleVisibility('searchResults')" id="searchButt">Search</button> 
-<button onclick="toggleVisibility('time')" id="timeButt">What Time is it?</button>
-<div id="searchResults">I am visible </div><!--Todo: is a placeholder needs to Jquery-->
-<div id="time">I am Visible </div><!--Todo: is a placeholder needs to Jquery-->
+<button onclick="runSearch()" id="searchButt">Search</button>
+<button onclick="showTime()" id="timeButt">What Time is it?</button>
+<div id="searchResults"></div>
+<div id="time"></div>
 
 
 </body>
 </html>
+
+
