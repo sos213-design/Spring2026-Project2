@@ -27,7 +27,8 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ./Spring2026-Project2-sostamps/Spring2026-Project2-sostamps.csproj
+      working-directory: ./Spring2026-Project2-sostamps
+        run: dotnet publish -c Release -o ./publish
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -64,6 +65,7 @@ jobs:
           package: .
 
           
+
 
 
 
