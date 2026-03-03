@@ -27,14 +27,14 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        working-directory: ./Spring2026-Project2-sostamps
+        working-directory: ./Spring2026-Project2-sostamps/Spring2026-Project2-sostamps
         run: dotnet publish -c Release -o ./publish
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ./Spring2026-Project2-sostamps/publish
+          path: ./Spring2026-Project2-sostamps/Spring2026-Project2-sostamps/publish
 
   deploy:
     runs-on: windows-latest
@@ -63,3 +63,4 @@ jobs:
           app-name: 'Spring2026-Project2-sostamps-AppService'
           slot-name: 'Production'
           package: .
+
