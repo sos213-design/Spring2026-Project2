@@ -1,65 +1,22 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
-
-name: Build and deploy ASP.Net Core app to Azure Web App - Spring2026-Project2-sostamps-AppService
+name: Deploy static site to Azure Web App
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: windows-latest
-    permissions:
-      contents: read
+  deploy:
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up .NET Core
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: '8.x'
-
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
-
-       - name: Build with dotnet
-        working-directory: ./Spring2026-Project2-sostamps
-        run: dotnet build --configuration Release
-
-      - name: dotnet publish
-        working-directory: ./Spring2026-Project2-sostamps
-        run: dotnet publish -c Release -o ./publish
-
-  deploy:
-    runs-on: windows-latest
-    needs: build
-    permissions:
-      id-token: write
-      contents: read
-
-    steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v4
-        with:
-          name: .net-app
-
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_95B2CD70EB1B4ADB9F2D7E0913133AF6 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_CDF916C921DD42C0AE3251AD11816A96 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_764C6A96ED4043DD9BAC9BC1EF7F441C }}
-
       - name: Deploy to Azure Web App
-        id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'Spring2026-Project2-sostamps-AppService'
-          slot-name: 'Production'
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: .
-
-
